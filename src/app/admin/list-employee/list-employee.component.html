@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+  <div class="card m-2 ">
+    <div class="card-header">
+      All Employee Details
+      <!--<button class="btn btn-info" type="button"  routerLink="./add-employee" routerLinkActive="active">Add Employee</button>-->
+      <button type="button " class="btn btn-info float-right" (click)="addNewEmployee()"><i class="fas fa-plus">
+      </i> Add New Employee</button>
+    </div>
+    <div class="card-body">
+
+    <table class="table table-bordered">
+    <!--<tr>
+        <th colspan="float-right" colspan="7"><a href="" (click)="logout()">Logout</a></th>
+    </tr>-->
+    <tr *ngIf="employees.length > 0">
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Pincode</th>
+        <th>Landmark</th>
+        <th>Action</th>
+    </tr>
+      <tr *ngIf="employees.length == 0">No Employees found</tr>
+    <tr *ngFor= "let employee of employees">
+        <td>{{employee.employeeId}}</td>
+        <td>{{employee.employeeName}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.username}}</td>
+        <td>{{employee.password}}</td>
+        <td>{{employee.address.city}}</td>
+        <td>{{employee.address.state}}</td>
+        <td>{{employee.address.pin}}</td>
+        <td>{{employee.address.landmark}}</td>
+        <td><button class="btn btn-danger" (click)= "deleteEmployee(employee)">Delete</button>
+        <button class="btn btn-warning" (click)="editEmployee(employee)" style="margin-left: 20px;">Edit</button></td>
+    </tr>
+</table>
+    </div>
+  </div>
+</div>

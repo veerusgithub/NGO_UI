@@ -1,0 +1,8 @@
+{
+  "/ngo-app/*": {
+    "target": "http://localhost:9191",
+    "secure": false,
+    "logLevel": "debug"
+
+  }
+}

@@ -1,0 +1,36 @@
+<div class="container-fluid">
+
+  <div class="card m-2 ">
+    <div class="card-header">
+      {{isDonor ? 'My DOnations' :'All Donation Details'}}
+      <button type="button "  *ngIf="isDonor" class="btn btn-info float-right" (click)="addNewDonation()"><i class="fas fa-plus">
+      </i> Add New Donation</button>
+    </div>
+    <div class="card-body">
+
+      <table class="table table-bordered">
+        <!--<tr>
+            <th colspan="float-right" colspan="7"><a href="" (click)="logout()">Logout</a></th>
+        </tr>-->
+        <tr *ngIf="donations.length > 0">
+          <th>Donation Id</th>
+          <th>Amount</th>
+          <th>date</th>
+          <th>Donor ID</th>
+          <th>Item Id</th>
+          <th>Item Description</th>
+
+        </tr>
+        <tr *ngIf="donations.length ==0"> {{isDonor ? 'You have not donated yet' : 'No  one donated yet'}} </tr>
+        <tr *ngFor= "let donation of donations">
+          <td>{{donation.donationId}}</td>
+          <td>{{donation.donationAmount}}</td>
+          <td>{{donation.donationDate}}</td>
+          <td>{{donation.donorId}}</td>
+          <td>{{donation.donationItem.itemId}}</td>
+          <td>{{donation.donationItem.itemDescription}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

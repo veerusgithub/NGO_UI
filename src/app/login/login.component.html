@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+  <title>NGO Portal</title>
+</head>
+<body>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+    <a class="navbar-brand" routerLink=" " routerLinkActive="active"><h1>NGO</h1></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+      </ul>
+    </div>
+  </nav>
+  <div class="bg">
+
+    <div class="Container  loginform">
+      <div class="row px-3">
+        <div class="col-lg-10 col-xl-9 card flex-row mx-auto px-0">
+          <div class="img-left d-none d-md-flex"></div>
+          <div class="card-body">
+            <h4 class="title text-center mt-4">
+              Login into account
+            </h4>
+            <div class="alert alert-danger" *ngIf="isLoginFailed">
+              login failed!<br />{{ error }}
+            </div>
+            <form class="form-box px-3" form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="form-input">
+              <select formControlName="role" id="role" name="role" class="form-control">
+                <option [ngValue]=null>Please select a role</option>
+                <option *ngFor="let link of roles" [ngValue]="link">
+                  {{link}}
+                </option>
+              </select>
+              </div>
+              <br/>
+              <div class="form-input">
+                <span><i class="fas fa-user"></i></span>
+                <input type="email" name="" placeholder="User Name" tabindex="10" required formControlName="username">
+              </div>
+              <div class="form-input">
+                <span><i class="fa fa-key"></i></span>
+                <input type="password" name="" placeholder="Password" formControlName="password" required>
+              </div>
+
+              <!-- <div class="mb-3">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="cb1" name="">
+                <label class="custom-control-label" for="cb1">Remember me</label>
+              </div>
+            </div> -->
+
+              <div class="mb-3">
+
+                <button type="submit" [disabled]="!loginForm.valid" class="btn btn-block text-uppercase">
+                  <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                  Login
+                </button>
+              </div>
+
+              <!-- <div class="text-right">
+              <a href="#" class="forget-link">
+                Forget Password?
+              </a>
+            </div> -->
+
+
+              <div class="text-center mb-2">
+                Don't have an account? PLease contact Admin or Employee
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+

@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="card m-2">
+    <div class="card-header">
+      Update Employee Form
+    </div>
+    <div class="card-body">
+
+      <form [formGroup]="employeeForm" >
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.employeeId.errors &&
+        (employeeForm.controls.employeeId.touched || employeeForm.controls.employeeId.dirty)">
+            Employee Id is required
+          </div>
+          <label for="employeeId">Employee Id</label>
+          <input class="form-control" type="text" name="employeeId" id="employeeId" formControlName="employeeId"
+                 readonly>
+        </div>
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.employeeName.errors &&
+                (employeeForm.controls.employeeName.touched || employeeForm.controls.employeeName.dirty)">
+            Employee Name is required
+          </div>
+          <label for="employeeName">Employee Name</label>
+          <input class="form-control" type="text" name="employeeName" id="employeeName" formControlName="employeeName">
+        </div>
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.email.errors &&
+        (employeeForm.controls.email.touched || employeeForm.controls.email.dirty)">
+            Employee email is required
+          </div>
+
+          <label for="email">Email</label>
+          <input class="form-control" type="text" name="email" id="email" formControlName="email">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.phone.errors &&
+        (employeeForm.controls.phone.touched || employeeForm.controls.phone.dirty)">
+            Phone Number is required
+          </div>
+
+          <label for="phone">Phone</label>
+          <input class="form-control" type="text" name="phone" id="phone" formControlName="phone">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.username.errors &&
+        (employeeForm.controls.username.touched || employeeForm.controls.username.dirty)">
+            Employee Username is required
+          </div>
+
+          <label for="username">Username</label>
+          <input class="form-control" type="text" name="username" id="username" formControlName="username">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.password.errors &&
+        (employeeForm.controls.password.touched || employeeForm.controls.password.dirty)">
+            Password is required
+          </div>
+
+          <label for="password">Password</label>
+          <input class="form-control" type="text" name="password" id="password" formControlName="password">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.city.errors &&
+        (employeeForm.controls.city.touched || employeeForm.controls.city.dirty)">
+            City Name is required
+          </div>
+
+          <label for="city">City</label>
+          <input class="form-control" type="text" name="city" id="city" formControlName="city">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.state.errors &&
+        (employeeForm.controls.state.touched || employeeForm.controls.state.dirty)">
+            State is required
+          </div>
+
+          <label for="state">State</label>
+          <input class="form-control" type="text" name="state" id="state" formControlName="state">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.pin.errors &&
+        (employeeForm.controls.pin.touched || employeeForm.controls.pin.dirty)">
+            Pin is required
+          </div>
+
+          <label for="pin">Pincode</label>
+          <input class="form-control" type="text" name="pin" id="pin" formControlName="pin">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="employeeForm.controls.landmark.errors &&
+        (employeeForm.controls.landmark.touched || employeeForm.controls.landmark.dirty)">
+            Landmark is required
+          </div>
+
+          <label for="landmark">Landmark</label>
+          <input class="form-control" type="text" name="landmark" id="landmark" formControlName="landmark">
+        </div>
+
+
+        <button type="button" class="btn btn-primary" (click)="updateEmployee()" [disabled]="employeeForm.invalid">
+          Update Employee
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</div>

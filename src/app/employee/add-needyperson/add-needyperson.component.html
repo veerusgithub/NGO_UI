@@ -1,0 +1,88 @@
+<div class="container-fluid">
+  <div class="card m-1 p-1">
+    <div class="card-header">
+      <div class="alert alert-danger" *ngIf="isSignUpFailed">
+        Signup failed!<br/>{{ errorMessage }}
+      </div>
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your registration is successful!
+      </div>
+      New Person Registration Form
+      <button type="button " class="btn btn-info float-right" (click)="back()"><i class="fas fa-plus">
+      </i> back</button>
+    </div>
+    <div class="card-body">
+
+<form [formGroup]="needyPeopleRegForm" (ngSubmit)="addNeedyPerson()">
+
+    <div >
+
+        <label for="needyPersonName">NeedyPeople Name</label>
+        <input class="form-control" type="text" name="needyPersonName" id="needyPersonName" formControlName="needyPersonName">
+    </div>
+
+
+    <div >
+
+        <label for="familyIncome">Family Income</label>
+        <input class="form-control" type="text" name="familyIncome" id="familyIncome" formControlName="familyIncome">
+    </div>
+
+
+<div >
+
+    <label for="phone"> Phone Number</label>
+    <input class="form-control" type="text" name="phone" id="phone" formControlName="phone">
+</div>
+
+
+
+
+<div >
+  <div class="form-group">
+    <div *ngIf="needyPeopleRegForm.controls.username.errors &&
+        (needyPeopleRegForm.controls.username.touched || needyPeopleRegForm.controls.username.dirty)">
+      Employee Username is required
+    </div>
+
+    <label for="username">Username</label>
+    <input class="form-control" type="text" name="username" id="username" formControlName="username">
+  </div>
+  <div class="form-group">
+    <div *ngIf="needyPeopleRegForm.controls.password.errors &&
+        (needyPeopleRegForm.controls.password.touched || needyPeopleRegForm.controls.password.dirty)">
+      Password is required
+    </div>
+
+    <label for="password">Password</label>
+    <input class="form-control" type="text" name="password" id="password" formControlName="password">
+  </div>
+
+    <label for="city">City</label>
+    <input class="form-control" type="text" name="city" id="city" formControlName="city">
+</div>
+
+<div >
+
+    <label for="state">State</label>
+    <input class="form-control" type="text" name="state" id="state" formControlName="state">
+</div>
+<div >
+
+    <label for="pin">Pin</label>
+    <input class="form-control" type="text" name="pin" id="pin" formControlName="pin">
+</div>
+<div >
+
+    <label for="landmark">Landmark</label>
+    <input class="form-control" type="text" name="landmark" id="landmark" formControlName="landmark">
+</div>
+
+
+<div class="my-2">
+    <button class="btn btn-outline-primary">Register</button>
+</div>
+</form>
+</div>
+</div>
+</div>

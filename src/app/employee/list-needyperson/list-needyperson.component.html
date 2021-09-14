@@ -1,0 +1,49 @@
+<div class="container-fluid">
+
+  <div class="card m-2 ">
+    <div class="card-header">
+      All Needy People Details
+      <!--<button class="btn btn-info" type="button"  routerLink="./add-employee" routerLinkActive="active">Add Employee</button>-->
+      <button type="button " class="btn btn-info float-right" (click)="addNewNeedy()"><i class="fas fa-plus">
+      </i> Add New Needy Person</button>
+    </div>
+    <div class="card-body">
+<table class="table table-striped table-hover">
+    <thead>
+                <tr *ngIf="needypeople.length > 0">
+                    <th>needyPersonId</th>
+                    <th>needyPersonName</th>
+                    <th>phone</th>
+                    <th>familyIncome</th>
+                    <th>City</th>
+                    <th>State</th>
+                    <th>Pincode</th>
+                    <th>Landmark</th>
+                    <th>Action</th>
+                    <th colspan="2" style="text-align: center;">Action</th>
+                </tr>
+    <tr *ngIf="needypeople.length ==0"> No Needy person available right now </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let needyperson of needypeople">
+                    <td>{{needyperson.needyPersonId}}</td>
+                    <td>{{needyperson.needyPersonName}}</td>
+                    <td>{{needyperson.phone}}</td>
+                    <td>{{needyperson.familyIncome}}</td>
+                    <td>{{needyperson.address.city}}</td>
+                    <td>{{needyperson.address.state}}</td>
+                    <td>{{needyperson.address.pin}}</td>
+                    <td>{{needyperson.address.landmark}}</td>
+                    <td><button type="button" class="btn btn-outline-warning"
+                            (click)="editNeedyPerson(needyperson)">Update</button></td>
+                    <td><button type="button" class="btn btn-outline-danger"
+                            (click)="deleteNeedyPerson(needyperson)">Delete</button></td>
+                </tr>
+
+            </tbody>
+        </table>
+
+
+</div>
+  </div>
+</div>

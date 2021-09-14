@@ -1,0 +1,47 @@
+<div class="container-fluid">
+
+  <div class="card m-2 ">
+    <div class="card-header">
+      All Donor Details
+      <!--<button class="btn btn-info" type="button"  routerLink="./add-employee" routerLinkActive="active">Add Employee</button>-->
+      <button type="button " class="btn btn-info float-right" (click)="addNewDonor()"><i class="fas fa-plus">
+      </i> Add New Donor</button>
+    </div>
+    <div class="card-body">
+
+      <table class="table table-bordered">
+        <!--<tr>
+            <th colspan="float-right" colspan="7"><a href="" (click)="logout()">Logout</a></th>
+        </tr>-->
+        <tr *ngIf="donors.length > 0">
+          <th>Donor Id</th>
+          <th>Donor Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>UserName</th>
+          <th>Password</th>
+          <th>City</th>
+          <th>State</th>
+          <th>Pincode</th>
+          <th>Landmark</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngIf="donors.length ==0">Donors not added yet</tr>
+        <tr *ngFor= "let donor of donors">
+          <td>{{donor.donorId}}</td>
+          <td>{{donor.donorName}}</td>
+          <td>{{donor.donorEmail}}</td>
+          <td>{{donor.donorPhone}}</td>
+          <td>{{donor.donorUsername}}</td>
+          <td>{{donor.donorPassword}}</td>
+          <td>{{donor.address.city}}</td>
+          <td>{{donor.address.state}}</td>
+          <td>{{donor.address.pin}}</td>
+          <td>{{donor.address.landmark}}</td>
+          <td><button class="btn btn-danger" (click)= "deleteDonor(donor)">Delete</button>
+            <button class="btn btn-warning" (click)="editDonor(donor)" style="margin-left: 20px;">Edit</button></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

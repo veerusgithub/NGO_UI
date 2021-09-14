@@ -1,0 +1,38 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<section class="get-in-touch">
+    <h1 class="title">{{title}}</h1>
+    <div *ngIf="invalidLogin" class="error">
+        <div class="text-danger">Invalid credentials.</div>
+    </div>
+    <form class="contact-form row" (ngSubmit)="login()" [formGroup]="employeeForm">
+
+        <div class="form-field col-lg-12">
+            <input id="emailaddress" class="input-text js-input" type="text" formControlName="username" id="username"
+                required>
+            <label class="label" for="message">Email Address</label>
+            <div *ngIf="submitted && employeeForm.controls.username.errors" class="error">
+                <div class="text-danger" *ngIf="employeeForm.controls.username.errors.required">Email is required</div>
+            </div>
+        </div>
+        <div class="form-field col-lg-12">
+            <input id="password" class="input-text js-input" type="password" formControlName="password" id="pwd"
+                required>
+            <label class="label" for="message">Password</label>
+            <div *ngIf="submitted && employeeForm.controls.password.errors" class="error">
+                <div class="text-danger" *ngIf="employeeForm.controls.password.errors.required">Password is required</div>
+            </div>
+        </div>
+        <!-- <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" value="Submit">
+        </div> -->
+        <!-- <div class="form-field col-lg-12">
+            <button type="button" class="btn btn-outline-primary">Submit</button>
+        </div> -->
+        <button class="btn btn-outline-success">Login</button> &nbsp; &nbsp;
+        <button class="btn btn-outline-danger" type="reset">Reset</button>
+    </form>
+</section>

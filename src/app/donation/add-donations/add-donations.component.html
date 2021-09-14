@@ -1,0 +1,68 @@
+<div class="container-fluid">
+  <div class="card m-1 p-1">
+    <div class="card-header">
+      Donation Form
+      <div class="alert alert-danger" *ngIf="isSignUpFailed">
+        Donation failed!<br/>{{ errorMessage }}
+      </div>
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Your donation is successful!
+      </div>
+      <button type="button " class="btn btn-info float-right" (click)="back()"><i class="fas fa-plus">
+      </i> back</button>
+    </div>
+    <div class="card-body">
+
+      <form [formGroup]="donationForm">
+        <div class="form-group">
+          <div *ngIf="donationForm.controls.donationAmount.errors &&
+                (donationForm.controls.donationAmount.touched || donationForm.controls.donationAmount.dirty)">
+            Donation amount is required
+          </div>
+          <label for="donationAmount">Donation Amount</label>
+          <input class="form-control" type="number" name="donationAmount" id="donationAmount" formControlName="donationAmount">
+        </div>
+        <div class="form-group">
+          <div *ngIf="donationForm.controls.donationDate.errors &&
+        (donationForm.controls.donationDate.touched || donationForm.controls.donationDate.dirty)">
+            Donation date is required
+          </div>
+
+          <label for="donationDate">Date</label>
+          <input class="form-control" type="date" name="donationDate" id="donationDate" formControlName="donationDate">
+        </div>
+
+
+        <div class="form-group">
+          <div *ngIf="donationForm.controls.donationType.errors &&
+        (donationForm.controls.donationType.touched || donationForm.controls.donationType.dirty)">
+            Item Type is required
+          </div>
+          <select formControlName="donationType" id="donationType" name="donationType" class="form-control">
+            <option [ngValue]=null>Please select item type</option>
+
+            <option *ngFor="let link of itemTypes" [ngValue]="link">
+              {{link}}
+            </option>
+          </select>
+
+          </div>
+
+        <div class="form-group">
+          <div *ngIf="donationForm.controls.itemDescription.errors &&
+        (donationForm.controls.itemDescription.touched || donationForm.controls.itemDescription.dirty)">
+            itemDescription is required
+          </div>
+
+          <label for="itemDescription">Item Description</label>
+          <input class="form-control" type="text" name="itemDescription" id="itemDescription" formControlName="itemDescription">
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="addDonation()" [disabled]="donationForm.invalid">
+          Add Doantion
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>

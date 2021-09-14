@@ -1,0 +1,116 @@
+<div class="container-fluid">
+  <div class="card m-2">
+    <div class="card-header">
+      Update Employee Form
+    </div>
+    <div class="card-body">
+
+      <form [formGroup]="donorForm" >
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorId.errors &&
+        (donorForm.controls.donorId.touched || donorForm.controls.donorId.dirty)">
+            Donor Id is required
+          </div>
+          <label for="donorId">Donor Id</label>
+          <input class="form-control" type="text" name="donorId" id="donorId" formControlName="donorId"
+                 readonly>
+        </div>
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorName.errors &&
+                (donorForm.controls.donorName.touched || donorForm.controls.donorName.dirty)">
+            Donor Name is required
+          </div>
+          <label for="donorName">Donor Name</label>
+          <input class="form-control" type="text" name="donorName" id="donorName" formControlName="donorName">
+        </div>
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorEmail.errors &&
+        (donorForm.controls.donorEmail.touched || donorForm.controls.donorEmail.dirty)">
+            Donor email is required
+          </div>
+
+          <label for="donorEmail">Email</label>
+          <input class="form-control" type="text" name="donorEmail" id="donorEmail" formControlName="donorEmail">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorPhone.errors &&
+        (donorForm.controls.donorPhone.touched || donorForm.controls.donorPhone.dirty)">
+            Phone Number is required
+          </div>
+
+          <label for="donorPhone">Phone</label>
+          <input class="form-control" type="text" name="donorPhone" id="donorPhone" formControlName="donorPhone">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorUsername.errors &&
+        (donorForm.controls.donorUsername.touched || donorForm.controls.donorUsername.dirty)">
+            Donor Username is required
+          </div>
+
+          <label for="donorUsername">Username</label>
+          <input class="form-control" type="text" name="donorUsername" id="donorUsername" formControlName="donorUsername">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.donorPassword.errors &&
+        (donorForm.controls.donorPassword.touched || donorForm.controls.donorPassword.dirty)">
+            Password is required
+          </div>
+
+          <label for="donorPassword">Password</label>
+          <input class="form-control" type="text" name="donorPassword" id="donorPassword" formControlName="donorPassword">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.city.errors &&
+        (donorForm.controls.city.touched || donorForm.controls.city.dirty)">
+            City Name is required
+          </div>
+
+          <label for="city">City</label>
+          <input class="form-control" type="text" name="city" id="city" formControlName="city">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.state.errors &&
+        (donorForm.controls.state.touched || donorForm.controls.state.dirty)">
+            State is required
+          </div>
+
+          <label for="state">State</label>
+          <input class="form-control" type="text" name="state" id="state" formControlName="state">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.pin.errors &&
+        (donorForm.controls.pin.touched || donorForm.controls.pin.dirty)">
+            Pin is required
+          </div>
+
+          <label for="pin">Pincode</label>
+          <input class="form-control" type="text" name="pin" id="pin" formControlName="pin">
+        </div>
+
+        <div class="form-group">
+          <div *ngIf="donorForm.controls.landmark.errors &&
+        (donorForm.controls.landmark.touched || donorForm.controls.landmark.dirty)">
+            Landmark is required
+          </div>
+
+          <label for="landmark">Landmark</label>
+          <input class="form-control" type="text" name="landmark" id="landmark" formControlName="landmark">
+        </div>
+
+
+        <button type="button" class="btn btn-primary" (click)="updateEmployee()" [disabled]="donorForm.invalid">
+          Update Donor
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+</div>
